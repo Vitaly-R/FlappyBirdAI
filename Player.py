@@ -1,5 +1,6 @@
 import pygame
 import random
+import os
 
 
 class Player:
@@ -16,7 +17,7 @@ class Player:
         self._x = screen_width // 5
         self._y = screen_height // 2
         self._v = random.randint(self._MIN_INIT_V, 0)
-        self._img = pygame.image.load(r'DefBird.png')
+        self._img = pygame.image.load(os.path.join('Images', 'DefBird.png'))
         self._won = False
 
     def move(self):

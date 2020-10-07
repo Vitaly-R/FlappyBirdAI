@@ -1,12 +1,13 @@
 import pygame
 import numpy as np
 from Player import Player
+import os
 
 
 class AIPlayer (Player):
     def __init__(self, screen_width, screen_height):
         super().__init__(screen_width, screen_height)
-        self._img = pygame.image.load(r'AIBird.png')
+        self._img = pygame.image.load(os.path.join('Images', 'AIBird.png'))
         self.__w = np.random.normal(0, 1, 5)
         self.__fitness = 0
 

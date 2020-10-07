@@ -5,18 +5,18 @@ import os
 
 
 class Trainer:
-    def __init__(self, gen_size=10, max_gens=10, rate=0.1):
+    def __init__(self, gen_size=10, max_gens=10, mutation_rate=0.1):
         self.__gen_size = gen_size
         self.__max_gens = max_gens
-        self.__mutation_rate = rate
+        self.__mutation_rate = mutation_rate
         self.__player = FlappyBirdPlayer(True, self.__gen_size)
         self.__players = [AIPlayer(self.__player.get_width(), self.__player.get_height())
-                          for i in range(self.__gen_size)]
+                          for _ in range(self.__gen_size)]
         self.__best = None
-        if not os.path.exists('./weights/'):
-            os.mkdir('./weights/')
+        if not os.path.exists(os.path.join(os.getcwd(), 'weights')):
+            os.mkdir(os.path.join(os.getcwd(), 'weights'))
 
-    def train(self, save=False):
+    def train(self, save=True):
         for i in range(1, self.__max_gens + 1):
             print('Training generation', i, 'out of', self.__max_gens)
             self.__train_single_gen()
@@ -54,6 +54,6 @@ class Trainer:
 
     def __save_best_weights(self):
         now = str(datetime.now().strftime("%d%m%Y %H%M%S"))
-        weights = open('./weights/' + now + ' score ' + str(self.__best.get_score()) + '.txt', 'w')
+        weights = open(os.path.join(os.path.join(os.getcwd(), 'weights'), now + ' score ' + str(self.__best.get_score()) + '.txt'), 'w')
         weights.write(str(self.__best.get_weights()) + '\n')
         weights.close()

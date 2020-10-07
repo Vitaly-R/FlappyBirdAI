@@ -1,5 +1,6 @@
 import random as r
 import pygame
+import os
 
 
 class Pipe:
@@ -26,9 +27,9 @@ class Pipe:
         self.__bot_edge_y = self.__top_pipe_length + self.__EDGE_H + self.__GAP
         self.__bot_pipe_y = self.__bot_edge_y + self.__EDGE_H
         self.__bot_pipe_length = screen_height - self.__bot_pipe_y
-        self.__top_edge_pic = pygame.image.load(r'Top_edge.png').convert()
-        self.__bot_edge_pic = pygame.image.load(r'Bot_edge.png').convert()
-        self.__pipe_pic = pygame.image.load(r'Pipe.png').convert()
+        self.__top_edge_pic = pygame.image.load(os.path.join('Images', 'Top_edge.png')).convert()
+        self.__bot_edge_pic = pygame.image.load(os.path.join('Images', 'Bot_edge.png')).convert()
+        self.__pipe_pic = pygame.image.load(os.path.join('Images', 'Pipe.png')).convert()
 
     def draw(self, screen):
         """

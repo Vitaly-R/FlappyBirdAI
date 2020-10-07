@@ -1,4 +1,5 @@
 import pygame
+import os
 
 
 class FlappyBirdGUI:
@@ -16,7 +17,7 @@ class FlappyBirdGUI:
         pygame.font.init()
         self.__font = pygame.font.SysFont('David MS', 30, True)
         self.__screen = pygame.display.set_mode((self.__SCREEN_W, self.__SCREEN_H))
-        self.__bg = pygame.image.load(r'BG.png').convert()
+        self.__bg = pygame.image.load(os.path.join('Images', 'BG.png')).convert()
 
     def show_start_screen(self):
         messages, positions = self.__get_start_game_messages()

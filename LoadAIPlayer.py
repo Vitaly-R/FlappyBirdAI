@@ -5,8 +5,8 @@ import os
 
 def main():
     path = ''
-    player = FlappyBirdPlayer(True)
-    if os.path.exists(path):
+    player = FlappyBirdPlayer(as_ai=True)
+    if path != '' and os.path.exists(path):
         ai = AIPlayer.load_from_weights(path, player.get_width(), player.get_height())
         player.set_players([ai])
     player.play()
