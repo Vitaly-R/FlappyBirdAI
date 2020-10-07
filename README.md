@@ -8,3 +8,5 @@ players in each generation, the max number of training generations, and the muta
 can be changed in that file.
 * In order to load a saved AI player, fill in the path of the saved weights file in the 'path' variable in the
 LoadAIPlayer.py file. If a non-existing path, or no path at all, is filled in, the player will be untrained.
+
+Requirements: Python 3 with Numpy ad Pygame installed.
